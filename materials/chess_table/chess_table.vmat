@@ -2,18 +2,34 @@
 
 Layer0
 {
-	shader "vr_simple.vfx"
+	shader "complex.vfx"
+
+	//---- Detail Texture ----
+	F_DETAIL_TEXTURE 3 // Normals
 
 	//---- PBR ----
-	F_AMBIENT_OCCLUSION_TEXTURE 1
+	F_METALNESS_TEXTURE 1
+	F_SPECULAR 1
 
 	//---- Ambient Occlusion ----
-	TextureAmbientOcclusion "source/dining_table/Textures/Dinner_Table_AO.png"
+	g_flAmbientOcclusionDirectDiffuse "0.000"
+	g_flAmbientOcclusionDirectSpecular "0.000"
+	TextureAmbientOcclusion "materials/chess_table/textures/new/AO.jpg"
 
 	//---- Color ----
 	g_flModelTintAmount "1.000"
 	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
-	TextureColor "materials/chess_table/textures/chess_table.jpg"
+	TextureColor "materials/chess_table/textures/new/color.jpg"
+
+	//---- Detail Texture ----
+	g_flDetailBlendFactor "1.000"
+	g_flDetailBlendToFull "0.000"
+	g_flDetailNormalStrength "1.000"
+	g_flDetailTexCoordRotation "0.000"
+	g_vDetailTexCoordOffset "[0.000 0.000]"
+	g_vDetailTexCoordScale "[1.000 1.000]"
+	TextureDetailMask "materials/default/default_detailmask.tga"
+	TextureNormalDetail "materials/default/default_normal.tga"
 
 	//---- Fade ----
 	g_flFadeExponent "1.000"
@@ -26,13 +42,13 @@ Layer0
 	g_flDirectionalLightmapStrength "1.000"
 
 	//---- Metalness ----
-	g_flMetalness "0.000"
+	TextureMetalness "materials/chess_table/textures/new/Metallic.jpg"
 
 	//---- Normal ----
-	TextureNormal "materials/chess_table/textures/chess_table_normal.jpg"
+	TextureNormal "materials/chess_table/textures/new/Normal.png"
 
 	//---- Roughness ----
-	TextureRoughness "materials/chess_table/textures/chess_table_rough.jpg"
+	TextureRoughness "materials/chess_table/textures/new/Roughness.jpg"
 
 	//---- Texture Coordinates ----
 	g_nScaleTexCoordUByModelScaleAxis "0"
